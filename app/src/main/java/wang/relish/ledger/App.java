@@ -17,6 +17,7 @@ public class App extends Application {
         super.onCreate();
         CONTEXT = this;
         GreenDaoHelper.initDatabase();
+
     }
 
     public static Context getContext() {
