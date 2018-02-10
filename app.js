@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var settings = require('./settings');
+var flash = require('./connect-flash');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var users = require('./routes/users');
@@ -32,6 +33,7 @@ app.use(session({
     url: 'mongodb://'+settings.host+':'+settings.port+'/'+settings.db
   })
 }));
+app.use(flash);
 
 app.use('/', index);
 app.use('/users', users);
